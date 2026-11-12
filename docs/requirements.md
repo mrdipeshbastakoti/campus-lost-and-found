@@ -1,6 +1,6 @@
 # Requirements — Campus Lost-and-Found System
 
-Status: Initial draft for team review. These requirements are proposed from our project discussions. Classmate interviews and professor review have not yet been recorded.
+Status: Requirements reviewed by the team, as confirmed by Dipesh. MySQL and the photo-upload additions have been approved. Classmate interviews and professor review have not yet been recorded.
 
 ## 1. Problem and goal
 
@@ -29,6 +29,9 @@ Finder and claimant are roles of the same user account.
 | FR-08 | Only the finder shall be able to mark a reserved found report as returned after handover. | The report becomes returned and rejects further claims. Approval alone does not mark the item returned. |
 | FR-09 | The author of an open lost report shall be able to mark it resolved after recovering the item. | The report displays resolved and another student cannot change its status. |
 
+| FR-10 | A student may attach one optional JPG or PNG photo when creating a lost/found report. Maximum size is 5 MB. | A valid image is accepted. Posting without a photo also succeeds. |
+| FR-11 | Reports display a thumbnail in the list and a larger image on the details page. | The correct image appears on both pages. Reports without images show a placeholder. |
+
 ## 4. Non-functional requirements
 
 | ID | Requirement | Verification |
@@ -40,6 +43,9 @@ Finder and claimant are roles of the same user account.
 | NFR-05 | At most one approved claim shall exist per found report. | Attempt competing approvals and verify one approved claim, one reserved report, and consistent remaining claim states. |
 | NFR-06 | All four members shall be able to run the project using documented setup steps. | Each member records whether setup and the report-and-browse demo pass on their laptop. |
 
+| NFR-07 | The server validates the uploaded image's actual type and size and assigns a unique filename. | An oversized file or a non-image renamed .jpg is rejected. |
+| NFR-08 | Failed submissions leave no incomplete report or leftover uploaded file. | Invalid input or a database failure produces a clear error and cleans up any newly saved image. |
+
 These are planned checks. Actual results will be recorded after implementation.
 
 ## 5. Report and claim rules
@@ -48,23 +54,23 @@ These are planned checks. Actual results will be recorded after implementation.
 - Found reports move from Open to Reserved when a claim is approved, then to Returned after handover.
 - Claims begin Pending and become Approved, Rejected, or Closed.
 - Closed means another claim was approved for the same report.
-- Public descriptions should omit at least one identifying detail so an owner can supply evidence privately.
+- Public photos and descriptions should omit at least one identifying detail so an owner can supply evidence privately.
 - The finder reviews evidence manually. The software records the decision.
 - For the initial scope, approval is final. Reopening reservations and handling disputes are future improvements.
 
 ## 6. Increment plan
 
-1. Report and browse with test accounts. Build FR-02 and FR-03 using a seeded test identity that is clearly documented for local development.
-2. Accounts, search, and claims. Add FR-01, FR-04, FR-05, and FR-06. Replace the test identity with real sign-in and authorization.
-3. Decisions and recovery. Add FR-07, FR-08, and FR-09, then verify the complete workflow.
+1. Accounts. Build registration, sign-in, and sign-out (FR-01).
+2. Reports with photos. Build posting, browsing, searching, and image display (FR-02, FR-03, FR-04, FR-10, FR-11).
+3. Claims and returns. Build private claims, decisions, and recovery (FR-05 through FR-09), then verify the complete workflow.
 
 Every increment includes relevant validation and testing. Privacy and authorization must be implemented before real claims are used.
 
 ## 7. Scope and pending decisions
 
-The proposed first release includes manual claims and returns. Image uploads, chat, automated matching, notifications, and an administrator dashboard are future options.
+The proposed first release includes manual claims and returns. One optional photo per report is included. Chat, automated matching, notifications, and an administrator dashboard are future options.
 
-- Confirm requirements and scope with all four members.
+- Team requirements review confirmed by Dipesh.
 - Ask classmates how they report and recover lost items. Record actual feedback and resulting changes.
-- Confirm the database choice together.
+- Database choice: MySQL. Local PHP environment: XAMPP. Verify the installed database server during setup because XAMPP distributions may bundle MariaDB.
 - Ask the professor whether additional UML diagrams or a report template are required.

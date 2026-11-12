@@ -9,7 +9,8 @@ and claim their belongings.
 ## Planned Technologies
 - PHP
 - HTML and CSS
-- Database to be decided
+- MySQL
+- XAMPP for local PHP development
 
 ## Development Model
 Incremental development
