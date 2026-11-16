@@ -28,7 +28,6 @@ Finder and claimant are roles of the same user account.
 | FR-07 | Only the finder shall be able to approve or reject pending claims on their report. | Approval reserves the report for that claimant and closes other pending claims. A second approval is rejected, including if requests arrive together. |
 | FR-08 | Only the finder shall be able to mark a reserved found report as returned after handover. | The report becomes returned and rejects further claims. Approval alone does not mark the item returned. |
 | FR-09 | The author of an open lost report shall be able to mark it resolved after recovering the item. | The report displays resolved and another student cannot change its status. |
-
 | FR-10 | A student may attach one optional JPG or PNG photo when creating a lost/found report. Maximum size is 5 MB. | A valid image is accepted. Posting without a photo also succeeds. |
 | FR-11 | Reports display a thumbnail in the list and a larger image on the details page. | The correct image appears on both pages. Reports without images show a placeholder. |
 
@@ -42,7 +41,6 @@ Finder and claimant are roles of the same user account.
 | NFR-04 | State-changing actions shall check authentication, ownership where applicable, and a valid CSRF token on the server. | Missing or invalid tokens and requests from unauthorized accounts leave data unchanged. |
 | NFR-05 | At most one approved claim shall exist per found report. | Attempt competing approvals and verify one approved claim, one reserved report, and consistent remaining claim states. |
 | NFR-06 | All four members shall be able to run the project using documented setup steps. | Each member records whether setup and the report-and-browse demo pass on their laptop. |
-
 | NFR-07 | The server validates the uploaded image's actual type and size and assigns a unique filename. | An oversized file or a non-image renamed .jpg is rejected. |
 | NFR-08 | Failed submissions leave no incomplete report or leftover uploaded file. | Invalid input or a database failure produces a clear error and cleans up any newly saved image. |
 
