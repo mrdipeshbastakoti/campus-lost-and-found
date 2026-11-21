@@ -2,7 +2,7 @@
 
 Owner: Dipesh. Branch: feature/search-and-filters.
 
-This commit adds the database part of search (FR-04) and report-type/status filters. It uses the existing schema and Database::connect(), without depending on the accounts branch. The homepage and browser search form are not changed yet.
+This commit adds the database part of search (FR-04) and report-type/status filters. It uses the existing schema and Database::connect(), without depending on the accounts branch. The homepage is unchanged. search.php provides a public browser search form and escaped report results.
 
 ## API
 
@@ -35,4 +35,8 @@ The script creates a temporary test account and five reports inside an InnoDB tr
 
 Both PHP files passed linting. All 21 search checks passed on PHP 8.4.27 and MariaDB 11.8.9 with the repository schema and connection class. Checks covered empty searches, combined filters, status/type choices, substring matching, literal symbols, query-injection text, public fields, sorting, rejected inputs, and fixture cleanup.
 
-Local XAMPP check: not run yet. Dipesh should record the actual result after running the command. Browser behavior is not part of this first commit; search controls and result rendering are the next part.
+Local XAMPP check: not run yet. Dipesh should record the actual result after running the command. The search page also passed PHP linting and HTTP checks for successful loading, empty results, invalid filters, malformed query values, and escaped form text in the Linux test environment. Visual and Windows XAMPP verification remain pending.
+
+## Open in the browser
+
+Start Apache and MySQL in XAMPP and open http://localhost/campus-lost-and-found/search.php after updating your local feature/search-and-filters branch. Search is read-only and does not require login. If no reports have been posted, the empty-results message is expected. The CLI check uses temporary records and rolls them back, so it will not populate the browser list. Photo display and item-detail links will be connected with the reports feature.
