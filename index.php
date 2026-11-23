@@ -8,7 +8,7 @@ require __DIR__ . '/includes/header.php';
 </section>
 <section class="notice" aria-labelledby="status-heading">
     <h2 id="status-heading">The website is being built</h2>
-    <p>Registration and login are coming next. Item reports and claims will follow.</p>
+    <p>Registration and login are available. Item reports and claims are coming next.</p>
 </section>
 <section id="how-it-works">
     <h2>How it works</h2>
