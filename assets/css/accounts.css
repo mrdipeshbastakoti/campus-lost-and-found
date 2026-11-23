@@ -1,0 +1,11 @@
+.account-panel { max-width: 430px; margin: 15px auto 35px; }
+.account-panel > p { color: #626262; }
+.account-link { margin-top: 20px; font-size: 14px; }
+.form-help { margin-top: -10px; color: #626262; font-size: 12px; }
+.form-error { padding: 12px; border: 1px solid #d7b8b8; background: #fff4f4; color: #812929 !important; }
+.form-success { padding: 12px; border: 1px solid #bad1bf; background: #f2f8f2; color: #285b42 !important; }
+.logout-form { margin: 0; }
+.nav-button { border: 0; padding: 0; background: none; color: #285b42; font: inherit; font-size: 14px; cursor: pointer; }
+.nav-button:hover { text-decoration: underline; }
+.header-content nav { flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.form-field input { min-width: 0; }
