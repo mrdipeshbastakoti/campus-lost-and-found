@@ -19,6 +19,7 @@ $activePage = $activePage ?? 'home';
         <a class="site-name" href="index.php">Campus Lost &amp; Found<span>Dong-Eui University</span></a>
         <nav aria-label="Main navigation">
             <a href="index.php" <?= $activePage === 'home' ? 'aria-current="page"' : '' ?>>Home</a>
+            <a href="search.php" <?= $activePage === 'search' ? 'aria-current="page"' : '' ?>>Search items</a>
             <a href="index.php#how-it-works">How it works</a>
             <?php if (AuthService::currentUserId() === null): ?>
                 <a href="register.php" <?= $activePage === 'register' ? 'aria-current="page"' : '' ?>>Register</a>
