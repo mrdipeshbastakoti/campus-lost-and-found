@@ -1,0 +1,17 @@
+.report-form { max-width: 650px; }
+.report-form > p { color: #626262; }
+.secondary-link { margin-left: 12px; }
+.report-photo { display: block; max-width: min(100%, 650px); max-height: 450px; object-fit: contain; margin: 0 0 20px; }
+.report-photo[hidden] { display: none; }
+.report-list { list-style: none; padding: 0; margin: 20px 0; }
+.report-list > li { padding: 20px 0; border-top: 1px solid #ddd; }
+.report-list h2 { font-size: 18px; margin-bottom: 6px; }
+.report-list p { margin-bottom: 8px; color: #626262; }
+.report-thumbnail { display: block; width: 110px; height: 85px; object-fit: cover; margin-bottom: 12px; }
+.photo-placeholder { display: block; width: 110px; padding: 25px 8px; margin-bottom: 12px; background: #f3f3f3; color: #666; text-align: center; font-size: 13px; }
+.report-details { max-width: 700px; overflow-wrap: anywhere; }
+.report-details dt { font-weight: bold; }
+.report-details dd { margin: 0 0 18px; }
+.resolve-form { margin-top: 14px; }
+.resolve-form label { display: block; margin-bottom: 10px; }
+.report-list h2, .report-list p { overflow-wrap: anywhere; }
