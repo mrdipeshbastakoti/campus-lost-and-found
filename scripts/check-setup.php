@@ -19,8 +19,18 @@ try {
 
     $config = require __DIR__ . '/../config/config.php';
     $directory = $config['storage_path'] . '/items';
-    if (!is_dir($directory) || !is_writable($directory)) {
-        throw new RuntimeException('Create the configured storage/items folder and make it writable.');
+    if (!is_dir($directory)) {
+        throw new RuntimeException(
+            'Photo storage folder is missing: ' . $directory .
+            '. Run php scripts/setup-storage.php, then run this check again.'
+        );
+    }
+
+    if (!is_writable($directory)) {
+        throw new RuntimeException(
+            'Photo storage folder exists but PHP CLI cannot write to it: ' .
+            $directory . '. Check the folder permissions.'
+        );
     }
     echo "PASS: Photo storage folder is writable from PHP CLI." . PHP_EOL;
     echo "Server version: " . $pdo->getAttribute(PDO::ATTR_SERVER_VERSION) . PHP_EOL;
