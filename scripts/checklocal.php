@@ -14,6 +14,9 @@ require_once __DIR__ . '/../src/Database.php';
 
 try {
     echo "PASS: Apache is running PHP in your browser.\n";
+    echo 'PHP version: ' . PHP_VERSION . "\n";
+echo 'Photo upload limit: ' . ini_get('upload_max_filesize') . "\n";
+echo 'POST request limit: ' . ini_get('post_max_size') . "\n";
     $pdo = Database::connect();
     foreach (['users', 'item_reports', 'claims'] as $table) {
         $pdo->query('SELECT 1 FROM ' . $table . ' LIMIT 1');
