@@ -69,10 +69,15 @@ require __DIR__ . '/includes/header.php';
         <p>If no reports have been posted yet, this list will be empty.</p>
     <?php else: ?>
         <p><?= count($reports) ?> report(s) found.</p>
-        <ul class="steps">
+        <ul class="report-list">
             <?php foreach ($reports as $report): ?>
                 <li>
-                    <strong><?= searchEscape($report['item_name']) ?></strong>
+                    <?php if ($report['photo_path'] !== null): ?>
+                        <img class="report-thumbnail" src="photo.php?report_id=<?= (int) $report['report_id'] ?>" alt="Photo of <?= searchEscape($report['item_name']) ?>" loading="lazy">
+                    <?php else: ?>
+                        <span class="photo-placeholder">No photo</span>
+                    <?php endif; ?>
+                    <h2><a href="item.php?report_id=<?= (int) $report['report_id'] ?>"><?= searchEscape($report['item_name']) ?></a></h2>
                     <p><?= searchEscape(ucfirst($report['report_type'])) ?> · <?= searchEscape(ucfirst($report['status'])) ?></p>
                     <p><?= searchEscape($report['location']) ?> · <?= searchEscape($report['event_date']) ?></p>
                 </li>

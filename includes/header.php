@@ -11,6 +11,7 @@ $activePage = $activePage ?? 'home';
     <title><?= escape($pageTitle) ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/accounts.css">
+    <link rel="stylesheet" href="assets/css/reports.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -25,6 +26,8 @@ $activePage = $activePage ?? 'home';
                 <a href="register.php" <?= $activePage === 'register' ? 'aria-current="page"' : '' ?>>Register</a>
                 <a href="login.php" <?= $activePage === 'login' ? 'aria-current="page"' : '' ?>>Log in</a>
             <?php else: ?>
+                <a href="report.php" <?= $activePage === 'report' ? 'aria-current="page"' : '' ?>>Report an item</a>
+                <a href="my-reports.php" <?= $activePage === 'my-reports' ? 'aria-current="page"' : '' ?>>My Reports</a>
                 <form class="logout-form" action="logout.php" method="post">
                     <input type="hidden" name="csrf_token" value="<?= escape(Session::csrfToken()) ?>">
                     <button type="submit" class="nav-button">Log out</button>
