@@ -9,8 +9,11 @@ A Software Engineering course project for reporting lost and found belongings at
 - Search by item name and filter by report type and status.
 - Open public item details and view photos.
 - View your own reports and mark an open lost report resolved after recovery.
+- Submit private ownership claims for another student's open found report.
+- Review claims on your own found reports and approve or reject them.
+- Reserve an item after approval and record its return after handover.
 
-Private ownership claims, finder decisions, and found-item returns are being developed on `feature/claims-and-returns`.
+Claim evidence is visible only to its claimant and the finder.
 
 ## Technologies
 
@@ -22,7 +25,7 @@ PHP 8 or later, HTML, CSS, JavaScript, and a MySQL-compatible database using Inn
 2. Start Apache and MySQL in the XAMPP Control Panel.
 3. Copy `config/config.example.php` to `config/config.php` and enter your local database settings.
 4. For a new installation, open [phpMyAdmin](http://localhost/phpmyadmin/) and import [database/schema.sql](database/schema.sql). Import the initial schema once into a fresh installation; keep your existing database when updating the project.
-5. Set `storage_path` to `C:/xampp/campus-lost-found-storage` and create its `items` subfolder: `C:/xampp/campus-lost-found-storage/items`. This folder is outside `htdocs`. Adjust the path if XAMPP is installed elsewhere.
+5. Set `storage_path` to `C:/xampp/campus-lost-found-storage`. From a terminal in the project folder, run `C:/xampp/php/php.exe scripts/setup-storage.php` to create its `items` subfolder and check CLI write access. The storage folder is outside `htdocs`. Adjust the paths if XAMPP is installed elsewhere.
 6. To support the full 5 MB photo allowance, check Apache's PHP settings through XAMPP Control Panel > Apache > Config > PHP (php.ini). Enable `file_uploads` and `fileinfo`, set `upload_max_filesize` to at least `5M` and `post_max_size` above that, such as `8M`, then restart Apache if you changed the settings.
 7. Open the [browser setup check](http://localhost/campus-lost-and-found/scripts/checklocal.php). Confirm its Apache, database, and photo-storage checks pass.
 8. Open [Campus Lost & Found](http://localhost/campus-lost-and-found/), register a test account, and try posting and searching for a report.
@@ -43,7 +46,7 @@ Each teammate uses their own local database, configuration, and photos. Keep `co
 |---|---|---|
 | 1 | Accounts: registration, login, logout | Merged into main |
 | 2 | Reports, photos, search, details, and lost-item recovery | Merged into main |
-| 3 | Private claims, approval/rejection, and confirmed returns | In progress |
+| 3 | Private claims, approval/rejection, and confirmed returns | Merged into main |
 
 Each increment adds working functionality and includes relevant review and testing before integration.
 
@@ -55,6 +58,8 @@ Each increment adds working functionality and includes relevant review and testi
 - [Accounts](docs/accounts.md)
 - [Search and its verification command](docs/search.md)
 - [Reports, photos, and local acceptance checks](docs/reports.md)
+- [Claims, decisions, and returns](docs/claims.md)
+- [Report and search integration checks](docs/report-search-checks.md)
 
 ## Team members
 
