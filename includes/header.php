@@ -28,6 +28,8 @@ $activePage = $activePage ?? 'home';
             <?php else: ?>
                 <a href="report.php" <?= $activePage === 'report' ? 'aria-current="page"' : '' ?>>Report an item</a>
                 <a href="my-reports.php" <?= $activePage === 'my-reports' ? 'aria-current="page"' : '' ?>>My Reports</a>
+                <a href="my-claims.php" <?= $activePage === 'claims' ? 'aria-current="page"' : '' ?>>My Claims</a>
+                <a href="manage-found.php" <?= $activePage === 'manage-found' ? 'aria-current="page"' : '' ?>>Manage found items</a>
                 <form class="logout-form" action="logout.php" method="post">
                     <input type="hidden" name="csrf_token" value="<?= escape(Session::csrfToken()) ?>">
                     <button type="submit" class="nav-button">Log out</button>

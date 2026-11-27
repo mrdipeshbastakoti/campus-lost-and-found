@@ -41,6 +41,9 @@ require __DIR__ . '/includes/header.php';
             <li>
                 <h2><a href="item.php?report_id=<?= (int) $report['report_id'] ?>"><?= escape($report['item_name']) ?></a></h2>
                 <p><?= escape(ucfirst($report['report_type'])) ?> · <?= escape(ucfirst($report['status'])) ?> · <?= escape($report['location']) ?> · <?= escape($report['event_date']) ?></p>
+                <?php if ($report['report_type'] === 'found'): ?>
+                    <p><a href="review-claims.php?report_id=<?= (int) $report['report_id'] ?>">Review claims and record return</a></p>
+                <?php endif; ?>
                 <?php if ($report['report_type'] === 'lost' && $report['status'] === 'open'): ?>
                     <form action="my-reports.php" method="post" class="resolve-form">
                         <input type="hidden" name="csrf_token" value="<?= escape(Session::csrfToken()) ?>">

@@ -7,8 +7,8 @@ require __DIR__ . '/includes/header.php';
     <p>Report lost belongings, browse found items, and help return them to their owners.</p>
 </section>
 <section class="notice" aria-labelledby="status-heading">
-    <h2 id="status-heading">The website is being built</h2>
-    <p>Registration, login, item reports, photos, and search are available. Private claims and returns are coming next.</p>
+    <h2 id="status-heading">Report, claim, and return</h2>
+    <p>Report a lost or found item, submit a private ownership claim, and record its return after handover.</p>
 </section>
 <section id="how-it-works">
     <h2>How it works</h2>
