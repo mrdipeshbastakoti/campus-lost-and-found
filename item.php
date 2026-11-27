@@ -34,6 +34,19 @@ require __DIR__ . '/includes/header.php';
         <?php if ((int) $report['user_id'] === AuthService::currentUserId()): ?>
             <p>This is your report. <a href="my-reports.php">View My Reports</a>.</p>
         <?php endif; ?>
+        <?php if ($report['report_type'] === 'found'): ?>
+            <?php if ((int) $report['user_id'] === AuthService::currentUserId()): ?>
+                <p><a href="review-claims.php?report_id=<?= (int) $report['report_id'] ?>">Review claims and record return</a></p>
+            <?php elseif ($report['status'] === 'open'): ?>
+                <?php if (AuthService::currentUserId() === null): ?>
+                    <p><a href="login.php">Log in</a> to submit a private ownership claim for this item.</p>
+                <?php else: ?>
+                    <p><a class="button" href="claim.php?report_id=<?= (int) $report['report_id'] ?>">Claim this item</a></p>
+                <?php endif; ?>
+            <?php else: ?>
+                <p>This found report is no longer accepting claims.</p>
+            <?php endif; ?>
+        <?php endif; ?>
     </article>
 <?php endif; ?>
 <?php require __DIR__ . '/includes/footer.php'; ?>
